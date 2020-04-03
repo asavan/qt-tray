@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>favicon.ico</file>
+        <file>favicon_full.ico</file>
+    </qresource>
+</RCC>
