@@ -21,8 +21,7 @@ lupdate_only {
     SOURCES +=  main.qml
 }
 
-RESOURCES += qml.qrc\
-    translations.qrc
+RESOURCES += qml.qrc
 
 TRANSLATIONS += \
     qt-tray_ru_RU.ts
