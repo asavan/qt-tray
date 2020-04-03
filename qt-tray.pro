@@ -17,7 +17,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp
 
-RESOURCES += qml.qrc
+lupdate_only {
+    SOURCES +=  main.qml
+}
+
+RESOURCES += qml.qrc\
+    translations.qrc
 
 TRANSLATIONS += \
     qt-tray_ru_RU.ts
