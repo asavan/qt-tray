@@ -1,9 +1,6 @@
-import QtQuick 2.12
-import QtQuick.Window 2.12
-
-import QtQuick.Controls 2.0
-import QtQuick.Layouts 1.3
-import Qt.labs.platform 1.0
+import QtQuick.Window 2.15
+import QtQuick.Controls 2.15
+import Qt.labs.platform 1.1
 
 ApplicationWindow {
     property string appTitle: "Example"
@@ -18,23 +15,28 @@ ApplicationWindow {
         id: systray
         tooltip: qsTr("Example")
         visible: true
-        iconSource: "qrc:/favicon.ico"
+        icon.source: "qrc:/favicon.ico"
 
         menu: Menu {
             MenuItem {
                 text: qsTr("Change Icon")
                 onTriggered: {
-                    systray.iconSource = "qrc:/favicon_full.ico"
+                    systray.icon.source = "qrc:/favicon_full.ico"
                     systray.showMessage("Message title", "Something important came up. Click this to know more.")
                 }
             }
             MenuItem {
                 text: qsTr("Quit")
-                onTriggered: Qt.quit()
+                onTriggered: {
+                    Qt.quit()
+                }
             }
         }
 
-        onMessageClicked: console.log("Message clicked")
+        onMessageClicked: {
+            console.log("Message clicked")
+            window.show()
+        }
         Component.onCompleted: {
             console.log(supportsMessages)
             console.log(Qt.locale().name);
@@ -52,7 +54,6 @@ ApplicationWindow {
     }
 
     onClosing: {
-        close.accepted = false
         window.hide()
     }
 
